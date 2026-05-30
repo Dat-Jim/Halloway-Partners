@@ -123,6 +123,9 @@
         background: var(--gold) !important;
         color: var(--navy) !important;
       }
+      .nav-toggle {
+        display: none;
+      }
 
       /* ── SHARED ── */
       .section-tag {
@@ -1341,8 +1344,50 @@
           padding: 0 28px;
           height: 64px;
         }
-        .nav-logo {
-          font-size: 18px;
+        .nav-toggle {
+          display: flex;
+          background: none;
+          border: none;
+          cursor: pointer;
+          width: 44px;
+          height: 44px;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          margin-left: auto;
+        }
+        .nav-toggle svg {
+          width: 22px;
+          height: 22px;
+        }
+        .nav-links {
+          display: none;
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 64px;
+          background: var(--navy);
+          flex-direction: column;
+          padding: 12px 16px;
+          gap: 0;
+          z-index: 300;
+          border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links button {
+          width: 100%;
+          text-align: left;
+          padding: 12px 14px;
+          border: none;
+          background: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 12px;
+        }
+        .nav-links button.nav-cta {
+          margin-top: 8px;
         }
         .hero {
           grid-template-columns: 1fr;
@@ -1376,6 +1421,9 @@
           grid-template-columns: repeat(2, 1fr);
           gap: 16px;
         }
+        .home-testi {
+          padding: 64px 28px;
+        }
         .home-testi-inner {
           grid-template-columns: 1fr;
           gap: 28px;
@@ -1384,6 +1432,45 @@
           padding: 48px 28px;
           flex-direction: column;
           align-items: flex-start;
+        }
+        .page-hero {
+          padding: 64px 28px;
+        }
+        .practice-full-card {
+          grid-template-columns: 1fr;
+        }
+        .pfc-left,
+        .pfc-right {
+          padding: 32px 24px;
+        }
+        .about-story,
+        .contact-section {
+          grid-template-columns: 1fr;
+          gap: 48px;
+          padding: 48px 28px;
+        }
+        .about-values-section,
+        .insights-grid-section,
+        .case-studies,
+        .results-stats,
+        .newsletter {
+          padding: 64px 28px;
+        }
+        .values-grid,
+        .attorneys-grid,
+        .results-stats-grid,
+        .testimonials-grid,
+        .case-grid,
+        .insights-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+        .timeline {
+          padding-left: 0;
+          border-left: none;
+        }
+        .timeline-item::before {
+          left: 0;
         }
         .footer-grid {
           grid-template-columns: 1fr 1fr;
@@ -1399,14 +1486,47 @@
         nav {
           padding: 0 16px;
         }
+        .nav-toggle {
+          display: flex;
+          background: none;
+          border: none;
+          cursor: pointer;
+          width: 44px;
+          height: 44px;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          margin-left: auto;
+        }
+        .nav-toggle svg {
+          width: 22px;
+          height: 22px;
+        }
         .nav-links {
-          gap: 6px;
-          overflow: auto;
-          padding-right: 6px;
+          display: none;
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 64px;
+          background: var(--navy);
+          flex-direction: column;
+          padding: 12px 16px;
+          gap: 0;
+          z-index: 300;
+          border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .nav-links.open {
+          display: flex;
         }
         .nav-links button {
+          width: 100%;
+          text-align: left;
+          padding: 12px 14px;
+          border: none;
+          background: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+          color: rgba(255, 255, 255, 0.9);
           font-size: 11px;
-          padding: 6px 8px;
         }
         .hero-left {
           padding: 40px 18px;
@@ -1437,17 +1557,42 @@
         .stat-item {
           padding: 20px 0;
         }
-        .home-intro {
+        .home-intro,
+        .about-story,
+        .contact-section,
+        .page-hero,
+        .about-values-section,
+        .insights-grid-section,
+        .case-studies,
+        .results-stats,
+        .newsletter {
           padding: 32px 18px;
         }
         .home-intro-right-placeholder {
           height: 220px;
         }
-        .practices-grid {
+        .practices-grid,
+        .values-grid,
+        .attorneys-grid,
+        .results-stats-grid,
+        .testimonials-grid,
+        .case-grid,
+        .insights-grid {
           grid-template-columns: 1fr;
         }
-        .practice-card {
-          padding: 20px;
+        .practice-card,
+        .practice-full-card,
+        .pfc-left,
+        .pfc-right,
+        .contact-form-box,
+        .insight-body,
+        .case-card,
+        .tcard,
+        .attorney-card {
+          padding: 24px;
+        }
+        .page-hero {
+          padding: 40px 18px;
         }
         .section-title {
           font-size: 32px;
@@ -1466,10 +1611,6 @@
           flex-direction: column;
           align-items: flex-start;
           gap: 12px;
-        }
-        .contact-section {
-          grid-template-columns: 1fr;
-          padding: 32px 18px;
         }
         .form-row {
           grid-template-columns: 1fr;
@@ -1505,7 +1646,25 @@
         </div>
         Holloway &amp; Partners
       </div>
-      <div class="nav-links">
+      <button
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        onclick="toggleNav()"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 6h18M3 12h18M3 18h18"></path>
+        </svg>
+      </button>
+
+      <div class="nav-links" id="nav-links">
         <button onclick="showPage('home')" id="nav-home" class="active">
           Home
         </button>
@@ -3353,6 +3512,23 @@
     </div>
 
     <script>
+      function toggleNav() {
+        const links = document.getElementById("nav-links");
+        const toggle = document.querySelector(".nav-toggle");
+        if (!links) return;
+        const open = links.classList.toggle("open");
+        if (toggle)
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function closeNav() {
+        const links = document.getElementById("nav-links");
+        const toggle = document.querySelector(".nav-toggle");
+        if (!links) return;
+        links.classList.remove("open");
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
+      }
+
       function showPage(id) {
         document
           .querySelectorAll(".page")
@@ -3365,6 +3541,8 @@
         if (page) page.classList.add("active");
         if (btn) btn.classList.add("active");
         window.scrollTo({ top: 0, behavior: "smooth" });
+        // Close mobile nav when navigating
+        closeNav();
       }
     </script>
   </body>
