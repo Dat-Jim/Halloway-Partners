@@ -3565,8 +3565,9 @@
             id="consultation-status"
             style="
               font-size: 11px;
-              color: rgba(255, 255, 255, 0.6);
+              color: var(--text-dark);
               margin-top: 16px;
+              min-height: 18px;
             "
           ></div>
           <p
@@ -3908,7 +3909,10 @@
 
           consultForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            if (consultStatus) consultStatus.textContent = "Sending request...";
+            if (consultStatus) {
+              consultStatus.style.color = "var(--text-muted)";
+              consultStatus.textContent = "Sending request...";
+            }
             const payload = {
               first_name: consultFirst?.value.trim() || null,
               last_name: consultLast?.value.trim() || null,
@@ -3918,15 +3922,22 @@
               preferred_contact_method: consultMethod?.value || null,
               message: consultDescription?.value.trim() || null,
             };
-            const { error } = await client.from("contacts").insert([payload]);
+            const { data, error } = await client
+              .from("contacts")
+              .insert([payload]);
+            console.log("consult insert", { data, error });
             if (error) {
               console.error(error);
-              if (consultStatus)
-                consultStatus.textContent = "Error sending request.";
+              if (consultStatus) {
+                consultStatus.style.color = "#b10f0f";
+                consultStatus.textContent = `Error: ${error.message}`;
+              }
               return;
             }
-            if (consultStatus)
-              consultStatus.textContent = "Request sent — thank you.";
+            if (consultStatus) {
+              consultStatus.style.color = "#1f6f3b";
+              consultStatus.textContent = "Your form has been submitted.";
+            }
             consultFirst.value = "";
             consultLast.value = "";
             consultEmail.value = "";
