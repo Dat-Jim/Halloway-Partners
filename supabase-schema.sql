@@ -10,12 +10,24 @@ create table if not exists public.posts (
 -- Contact form submissions
 create table if not exists public.contacts (
     id uuid primary key default gen_random_uuid(),
+    first_name text,
+    last_name text,
     name text,
     email text,
     phone text,
+    practice_area text,
+    preferred_contact_method text,
     message text,
     created_at timestamptz default now()
 );
+alter table if exists public.contacts
+add column if not exists first_name text;
+alter table if exists public.contacts
+add column if not exists last_name text;
+alter table if exists public.contacts
+add column if not exists practice_area text;
+alter table if exists public.contacts
+add column if not exists preferred_contact_method text;
 -- Team members / bios
 create table if not exists public.team_members (
     id uuid primary key default gen_random_uuid(),

@@ -1,7 +1,7 @@
 Drop the attached images into this folder with the following file names:
 
 - home-intro.jpg
-- richard-holloway.jpg
+- richard-halloway.jpg
 - sylvia-chen.jpg
 - marcus-okafor.jpg
 - laura-reyes.jpg
